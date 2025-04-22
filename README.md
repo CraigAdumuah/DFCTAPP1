@@ -1,4 +1,49 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# DFCT App
+
+A React Native mobile application built with Expo.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or newer)
+- npm or yarn
+- Expo CLI
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
+```bash
+npm start
+# or
+yarn start
+```
+
+## Available Scripts
+
+- `npm start` - Starts the Expo development server
+- `npm run android` - Runs the app on an Android emulator
+- `npm run ios` - Runs the app on an iOS simulator
+- `npm run web` - Runs the app in a web browser
+
+## Project Structure
+
+- `App.js` - Main application component
+- `app.json` - Expo configuration
+- `babel.config.js` - Babel configuration
+- `package.json` - Project dependencies and scripts
+
+## License
+
+This project is licensed under the MIT License.
 
 # Getting Started
 
@@ -66,7 +111,7 @@ This is one way to run your app — you can also build it directly from Android 
 
 Now that you have successfully run the app, let's make changes!
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
 
 When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
 
