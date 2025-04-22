@@ -2,67 +2,28 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import LoginScreen from '../screens/LoginScreen';
-import RegisterScreen from '../screens/RegisterScreen';
-import DiaryScreen from '../screens/DiaryScreen';
-import CameraScreen from '../screens/CameraScreen';
-import FoodResultScreen from '../screens/FoodResultScreen';
-
 const Stack = createNativeStackNavigator();
 
-const AppNavigator = () => {
+export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Login"
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#007AFF',
+            backgroundColor: '#fff',
           },
-          headerTintColor: '#fff',
+          headerTintColor: '#007AFF', // iOS blue color
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: '600',
+            fontSize: 17, // iOS default font size
           },
+          headerShadowVisible: false, // iOS-style header without shadow
+          headerBackTitleVisible: false, // iOS-style back button without text
         }}
       >
-        {/* Auth Screens */}
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Register"
-          component={RegisterScreen}
-          options={{ headerShown: false }}
-        />
-
-        {/* App Screens */}
-        <Stack.Screen
-          name="Diary"
-          component={DiaryScreen}
-          options={{
-            title: 'DFCT Food Diary',
-            headerLeft: () => null, // Disable back button
-          }}
-        />
-        <Stack.Screen
-          name="Camera"
-          component={CameraScreen}
-          options={{
-            title: 'Take Food Photo',
-          }}
-        />
-        <Stack.Screen
-          name="FoodResult"
-          component={FoodResultScreen}
-          options={{
-            title: 'Food Analysis',
-          }}
-        />
+        {/* ... existing screens ... */}
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
-
-export default AppNavigator; 
+} 

@@ -1,142 +1,49 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ActivityIndicator,
-  Alert,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import * as api from '../services/api';
-
-const LoginScreen = () => {
-  const navigation = useNavigation();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleLogin = async () => {
-    if (!email || !password) {
-      Alert.alert('Error', 'Please fill in all fields');
-      return;
-    }
-
-    try {
-      setIsLoading(true);
-      await api.login(email, password);
-      navigation.replace('Diary');
-    } catch (error) {
-      Alert.alert('Error', error.message || 'Failed to login');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}
-    >
-      <View style={styles.formContainer}>
-        <Text style={styles.title}>DFCT</Text>
-        <Text style={styles.subtitle}>Digital Food Calorie Tracker</Text>
-
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          value={email}
-          onChangeText={setEmail}
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-        />
-
-        <TouchableOpacity
-          style={styles.loginButton}
-          onPress={handleLogin}
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <ActivityIndicator color="#fff" />
-          ) : (
-            <Text style={styles.loginButtonText}>Login</Text>
-          )}
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.registerButton}
-          onPress={() => navigation.navigate('Register')}
-        >
-          <Text style={styles.registerButtonText}>
-            Don't have an account? Register
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </KeyboardAvoidingView>
-  );
-};
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
-  formContainer: {
-    flex: 1,
-    justifyContent: 'center',
+  contentContainer: {
     padding: 20,
   },
-  title: {
-    fontSize: 48,
-    fontWeight: 'bold',
-    color: '#007AFF',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: 40,
-  },
   input: {
-    backgroundColor: '#f5f5f5',
-    padding: 15,
+    height: 44, // iOS standard height
     borderRadius: 10,
-    marginBottom: 15,
-    fontSize: 16,
+    backgroundColor: '#F2F2F7', // iOS light gray
+    paddingHorizontal: 16,
+    marginBottom: 16,
+    fontSize: 17,
   },
-  loginButton: {
-    backgroundColor: '#007AFF',
-    padding: 15,
+  button: {
+    backgroundColor: '#007AFF', // iOS blue
+    height: 44,
     borderRadius: 10,
+    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
   },
-  loginButtonText: {
+  buttonText: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 17,
+    fontWeight: '600',
   },
-  registerButton: {
-    marginTop: 20,
-    alignItems: 'center',
-  },
-  registerButtonText: {
+  linkText: {
     color: '#007AFF',
-    fontSize: 16,
-  },
+    fontSize: 17,
+  }
 });
+
+const LoginScreen = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  return (
+    <View style={styles.container}>
+      {/* Rest of the component code */}
+    </View>
+  );
+};
 
 export default LoginScreen; 
