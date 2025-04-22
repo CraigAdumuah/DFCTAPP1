@@ -65,7 +65,7 @@ const CameraScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'grey',
   },
   camera: {
     flex: 1,
